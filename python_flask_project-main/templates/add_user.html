@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Add User Page
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="text-center mb-4 text-primary">Add New User</h2>
+    <form action="{{ url_for('add_user') }}" method="post" class="p-4 border rounded bg-light shadow-sm">
+        <div class="mb-3">
+            <label for="user_name" class="form-label fw-bold">User Name</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter user name" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label fw-bold">City</label>
+            <input type="text" class="form-control" id="city" name="city" placeholder="Enter city" required>
+        </div>
+        <div class="mb-3">
+            <label for="hobby" class="form-label fw-bold">Hobby</label>
+            <input type="text" class="form-control" id="hobby" name="hobby" placeholder="Enter hobby" required>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-success px-5">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

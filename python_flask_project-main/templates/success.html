@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}
+    Congrates
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="alert alert-success text-center shadow">
+                <h1 class="mb-0">{{ operation }} Successfully</h1>
+            </div>
+        </div>
+
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+        <a href="{{ url_for(method, id = id) }}" class="btn btn-info px-4 mx-2">Go Back</a>
+    </div>
+</div>
+{% endblock %}
+

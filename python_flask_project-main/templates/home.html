@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+Home Page
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 text-primary"><b>Welcome</b></h1>
+        <h2 class="mb-4">Flask User Management System</h2>
+    </div>
+    
+    <div class="p-4 border rounded bg-light shadow-sm" style="max-width: 600px; margin: 0 auto;">
+        <h3 class="text-center mb-3">Tech Stack</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><b>Backend</b>: Python (Flask)</li>
+            <li class="list-group-item"><b>Data</b>: MySQL</li>
+            <li class="list-group-item"><b>Frontend</b>: HTML, CSS, Bootstrap</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

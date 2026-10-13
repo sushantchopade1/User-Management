@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Update User{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+    <h2 class="text-center mb-4 text-primary">Update User</h2>
+    <form method="POST" action="{{ url_for('update_user', id=user[0]) }}" 
+          class="p-4 border rounded bg-light shadow-sm" id="updateForm">
+        <div class="mb-3">
+            <label for="user_name" class="form-label fw-bold">Name</label>
+            <input type="text" class="form-control" id="user_name" name="user_name" value="{{ user[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="{{ user[2] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="city" class="form-label fw-bold">City</label>
+            <input type="text" class="form-control" id="city" name="city" value="{{ user[3] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="hobby" class="form-label fw-bold">Hobby</label>
+            <input type="text" class="form-control" id="hobby" name="hobby" value="{{ user[4] }}" required>
+        </div>
+        <div class="d-flex justify-content-center mt-3">
+            <button type="submit" id="saveBtn" class="btn btn-success px-4 mx-2" disabled>Save</button>
+            <a href="{{ url_for('get_users') }}" class="btn btn-secondary px-4 mx-2">Cancel</a>
+        </div>
+    </form>
+</div>
+
+<!-- to defy a function for the save button -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('updateForm');
+        const saveBtn = document.getElementById('saveBtn');
+
+        // save initial data
+        const initialData = new FormData(form);
+
+        form.addEventListener('input', function () {
+            let changed = false;
+            const currentData = new FormData(form);// current data
+
+            for (let [key, value] of currentData.entries()) {
+                if (value !== initialData.get(key)) {
+                    changed = true;
+                    break;
+                }
+            }
+
+            saveBtn.disabled = !changed; // if data changed, btn enabled.
+        });
+    });
+</script>
+{% endblock %}
